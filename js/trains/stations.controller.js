@@ -8,6 +8,10 @@
     TrainsControllerFunction
   ]);
   function TrainsControllerFunction($stateParams){
+    this.setStation = function(trainsArray){
+      this.currentStation = trainsArray
+      console.log(this.currentStation)
+    }
     this.stations = {
       'Metro Center': [ 'A01', 'C01' ],
       'Farragut North': [ 'A02' ],

@@ -1,5 +1,6 @@
 <h1>All Stations</h1>
 
+<div>current station: {{StationsViewModel.currentStation}}</div>
 <div class="stations" data-ng-repeat="(key, value) in StationsViewModel.stations">
-  <p>{{key}} <train-time data-times="[]" data-code="value" data-station="key"></train-time></p>
+  <p>{{key}} <train-time data-times="[]" data-code="value" data-station="key" data-vm="StationsViewModel"></train-time></p>
 </div>

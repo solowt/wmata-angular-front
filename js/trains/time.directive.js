@@ -15,9 +15,13 @@
       scope: {
         code: '=', //@ - string = - object
         station: '=',
-        times: '='
+        times: '=',
+        vm: '='
       },
       link: function(scope){ //function run when directive is loaded
+        scope.updateStation = function(trainsArray){
+          scope.vm.setStation(trainsArray);
+        }
         scope.getTrains = function(){
           if (!scope.lastUpdated || (new Date().getTime() - scope.lastUpdated.getTime())/1000>20) {
             scope.times = []
@@ -39,8 +43,7 @@
                                 }
                     scope.times.push(train)
                   }
-                  // scope.times = data;
-                  // scope.times.header = "hi"
+                  scope.updateStation(scope.times)
                   $state.go('getStations')
 
               })
