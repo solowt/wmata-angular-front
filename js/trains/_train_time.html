@@ -1,0 +1,4 @@
+<div>
+  <a href="#" ng-click="getTrains(); showTimes=!showTimes">Get Trains</a>
+  <p ng-show="showTimes" data-ng-repeat="train in times">Number of Cars: {{train.cars}} | Destination: {{train.dest}} | ETA (Minutes): {{train.status}}</p>
+</div>
