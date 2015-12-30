@@ -1,6 +1,11 @@
 <h1>All Stations</h1>
-
-<div>current station: {{StationsViewModel.currentStation}}</div>
-<div class="stations" data-ng-repeat="(key, value) in StationsViewModel.stations">
-  <p>{{key}} <train-time data-times="[]" data-code="value" data-station="key" data-vm="StationsViewModel"></train-time></p>
+<div class="fixed">
+  <div class="border title">
+    <h2>Trains Arriving at {{StationsViewModel.currentStation[0].locationName}}</h2>
+    <div class="border-bot" data-ng-repeat="train in StationsViewModel.currentStation">Number of Cars: {{train.cars}} | Destination: {{train.dest}} | ETA (Minutes): {{train.status}}</div>
+  </div>
+</div>
+<div class="search"><input type="search" ng-model="station.name"></div>
+<div class="stations" data-ng-repeat="station in StationsViewModel.stations | filter:station.name">
+  <div class="border-bot"><train-time data-times="[]" data-code="station.code" data-station="station.name" data-vm="StationsViewModel"></train-time></div>
 </div>

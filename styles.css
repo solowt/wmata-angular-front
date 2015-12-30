@@ -1,0 +1,22 @@
+.fixed {
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+}
+
+.title {
+  text-align: center;
+  margin: auto;
+  display: block;
+  padding: 4px;
+}
+
+.border-bot {
+  padding-bottom: 2px;
+}
+
+.border {
+  border: 2px solid black;
+  max-width: 500px;
+}
