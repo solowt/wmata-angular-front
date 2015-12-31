@@ -10,7 +10,6 @@
   function TrainsControllerFunction($stateParams){
     this.setStation = function(trainsArray){
       this.currentStation = trainsArray
-      console.log(this.currentStation)
     }
     this.stations = [
       { name: 'Metro Center', code: 'A01' },
