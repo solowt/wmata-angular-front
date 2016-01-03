@@ -27,19 +27,19 @@
           console.log("Getting data...")
           scope.lastUpdated = new Date();
           $.ajax({
-                url: "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/"+scope.code+"?api_key=635e0ed2348f420cbe874f1bcd5d1b11",
                 type: "GET",
-                // Request body
-                data: "{body}",
-                dataType: "jsonp"
+                url: "http://localhost:3000/",
+                data: {code: scope.code},
+                dataType: "json"
             })
             .done(function(data) {
-              for (var i=0; i<data["Trains"].length; i++){
+              jsonRes = JSON.parse(data.body);
+              for (var i=0; i<jsonRes["Trains"].length; i++){
                 var train = {
-                            cars:data["Trains"][i].Car,
-                            dest:data["Trains"][i].Destination,
-                            status:data["Trains"][i].Min,
-                            locationName:data["Trains"][i].LocationName
+                            cars:jsonRes["Trains"][i].Car,
+                            dest:jsonRes["Trains"][i].Destination,
+                            status:jsonRes["Trains"][i].Min,
+                            locationName:jsonRes["Trains"][i].LocationName
                             }
                 scope.times.push(train)
               }
